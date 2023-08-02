@@ -37,14 +37,14 @@ public class DepartmentController {
     @GetMapping("/departments/{id}")
     public ResponseEntity<Department> getDepartmentById(@PathVariable String id) {
         Department department = departmentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Department not exist with id :" + id));
         return ResponseEntity.ok(department);
     }
 
     @PutMapping("/departments/{id}")
     public ResponseEntity<Department> updateDepartment(@PathVariable String id, @RequestBody Department departmentDetails) {
         Department department = departmentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Department not exist with id :" + id));
         department.setName(departmentDetails.getName());
         department.setLocation(departmentDetails.getLocation());
         Department updatedDepartment = departmentRepository.save(department);
@@ -54,7 +54,7 @@ public class DepartmentController {
     @DeleteMapping("/departments/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteDepartment(@PathVariable String id) {
         Department department = departmentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Department not exist with id :" + id));
         departmentRepository.delete(department);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);

@@ -8,6 +8,10 @@ import FooterComponent from './components/FooterComponent';
 import CreateEmployeeComponent from './components/CreateEmployeeComponent';
 import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 import ViewEmployeeComponent from './components/ViewEmployeeComponent';
+import ListDepartmentComponent from './components/ListDepartmentComponent';
+import CreateDepartmentComponent from './components/CreateDepartmentComponent';
+import ViewDepartmentComponent from './components/ViewDepartmentComponent';
+import UpdateDepartmentComponent from './components/UpdateDepartmentComponent';
 
 function App() {
   return (
@@ -21,6 +25,10 @@ function App() {
                           <Route path = "/add-employee/:id" component = {CreateEmployeeComponent}></Route>
                           <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}></Route>
                           <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route>
+                          <Route path = "/departments" component = {ListDepartmentComponent}></Route>
+                          <Route path = "/add-department/:id" component = {CreateDepartmentComponent}></Route>
+                          <Route path = "/view-department/:id" component = {ViewDepartmentComponent}></Route>
+                          <Route path = "/update-department/:id" component = {UpdateDepartmentComponent}></Route>
                     </Switch>
                 </div>
               <FooterComponent />

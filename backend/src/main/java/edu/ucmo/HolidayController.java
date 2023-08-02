@@ -30,14 +30,14 @@ public class HolidayController {
     @GetMapping("/holidays/{id}")
     public ResponseEntity<Holiday> getHolidayById(@PathVariable String id) {
         Holiday holiday = holidayRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Holiday not exist with id :" + id));
         return ResponseEntity.ok(holiday);
     }
 
     @DeleteMapping("/holidays/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteHoliday(@PathVariable String id) {
         Holiday holiday = holidayRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Holiday not exist with id :" + id));
         holidayRepository.delete(holiday);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);

@@ -37,14 +37,14 @@ public class PayrollController {
     @GetMapping("/payrolls/{id}")
     public ResponseEntity<Payroll> getPayrollById(@PathVariable String id) {
         Payroll payroll = payrollRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Payroll not exist with id :" + id));
         return ResponseEntity.ok(payroll);
     }
 
     @PutMapping("/payrolls/{id}")
     public ResponseEntity<Payroll> updatePayroll(@PathVariable String id, @RequestBody Payroll payrollDetails){
         Payroll payroll = payrollRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Payroll not exist with id :" + id));
         payroll.setEmployeeId(payrollDetails.getEmployeeId());
         payroll.setMonth(payrollDetails.getMonth());
         payroll.setYear(payrollDetails.getYear());
@@ -58,7 +58,7 @@ public class PayrollController {
     @DeleteMapping("/payrolls/{id}")
     public ResponseEntity<Map<String, Boolean>> deletePayroll(@PathVariable String id){
         Payroll payroll = payrollRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Payroll not exist with id :" + id));
         payrollRepository.delete(payroll);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);

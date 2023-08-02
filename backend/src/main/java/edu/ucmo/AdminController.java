@@ -30,14 +30,14 @@ public class AdminController {
     @GetMapping("/admins/{id}")
     public ResponseEntity<Admin> getAdminById(@PathVariable String id) {
         Admin admin = adminRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Admin not exist with id :" + id));
         return ResponseEntity.ok(admin);
     }
 
     @DeleteMapping("/admins/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteAdmin(@PathVariable String id) {
         Admin admin = adminRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Admin not exist with id :" + id));
         adminRepository.delete(admin);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);

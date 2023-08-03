@@ -37,7 +37,7 @@ class ListHolidayComponent extends Component {
     render() {
         return (
             <div>
-                 <h2 className="text-center">Admin List</h2>
+                 <h2 className="text-center">Holidays List</h2>
                  <div className = "row">
 
                  </div>

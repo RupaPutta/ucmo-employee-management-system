@@ -35,6 +35,8 @@ public class PayrollController {
 
     @PostMapping("/payrolls")
     public Payroll createPayroll(@RequestBody Payroll payroll) {
+        payroll.setTotalSalary(payrollService
+                .calculateTotalSalary(payroll).getTotalSalary());
         return payrollRepository.save(payroll);
     }
 

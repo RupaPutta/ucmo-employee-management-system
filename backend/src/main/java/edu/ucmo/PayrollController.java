@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +24,9 @@ public class PayrollController {
 
     @Autowired
     private PayrollRepository payrollRepository;
+
+    @Autowired
+    private PayrollService payrollService;
 
     @GetMapping("/payrolls")
     public List<Payroll> getAllPayrolls(){
@@ -45,12 +49,14 @@ public class PayrollController {
     public ResponseEntity<Payroll> updatePayroll(@PathVariable String id, @RequestBody Payroll payrollDetails){
         Payroll payroll = payrollRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Payroll not exist with id :" + id));
+
         payroll.setEmployeeId(payrollDetails.getEmployeeId());
         payroll.setMonth(payrollDetails.getMonth());
         payroll.setYear(payrollDetails.getYear());
         payroll.setBaseSalary(payrollDetails.getBaseSalary());
         payroll.setOvertimeSalary(payrollDetails.getOvertimeSalary());
-        payroll.setTotalSalary(payrollDetails.getTotalSalary());
+        payroll.setTotalSalary(payrollService
+                .calculateTotalSalary(payroll).getTotalSalary());
         Payroll updatedPayroll = payrollRepository.save(payroll);
         return ResponseEntity.ok(updatedPayroll);
     }
@@ -63,5 +69,11 @@ public class PayrollController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/payrolls/calculate")
+    public ResponseEntity<Payroll> calculatePayroll(@RequestBody Payroll payroll){
+        Payroll calculatedPayroll = payrollService.calculateTotalSalary(payroll);
+        return new ResponseEntity<>(calculatedPayroll, HttpStatus.OK);
     }
 }

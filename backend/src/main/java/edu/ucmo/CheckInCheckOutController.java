@@ -57,6 +57,8 @@ public class CheckInCheckOutController {
         checkInCheckOut.setCheckOutTime(checkInCheckOutDetails.getCheckOutTime());
         checkInCheckOut.setClockInLocation(checkInCheckOutDetails.getClockInLocation());
         checkInCheckOut.setClockOutLocation(checkInCheckOutDetails.getClockOutLocation());
+        checkInCheckOut.setTotalSalary(clockingService
+                .calculateTotalSalary(checkInCheckOut).getTotalSalary());
         CheckInCheckOut updatedCheckInCheckOut = checkInCheckOutRepository.save(checkInCheckOut);
         return ResponseEntity.ok(updatedCheckInCheckOut);
     }

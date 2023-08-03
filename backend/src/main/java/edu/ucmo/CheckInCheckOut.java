@@ -19,6 +19,8 @@ public class CheckInCheckOut {
 
     private String clockOutLocation;
 
+    private String totalSalary;
+
     public CheckInCheckOut() {
     }
 
@@ -68,5 +70,13 @@ public class CheckInCheckOut {
 
     public void setClockOutLocation(String clockOutLocation) {
         this.clockOutLocation = clockOutLocation;
+    }
+
+    public String getTotalSalary() {
+        return totalSalary;
+    }
+
+    public void setTotalSalary(String totalSalary) {
+        this.totalSalary = totalSalary;
     }
 }

@@ -25,6 +25,9 @@ public class CheckInCheckOutController {
     @Autowired
     private CheckInCheckOutRepository checkInCheckOutRepository;
 
+    @Autowired
+    private ClockingService clockingService;
+
     @GetMapping("/checkInCheckOuts")
     public List<CheckInCheckOut> getAllCheckInCheckOuts() {
         return checkInCheckOutRepository.findAll();
@@ -32,6 +35,8 @@ public class CheckInCheckOutController {
 
     @PostMapping("/checkInCheckOuts")
     public CheckInCheckOut createCheckInCheckOuts(@RequestBody CheckInCheckOut checkInCheckOut) {
+        checkInCheckOut.setTotalSalary(clockingService
+                .calculateTotalSalary(checkInCheckOut).getTotalSalary());
         return checkInCheckOutRepository.save(checkInCheckOut);
     }
 

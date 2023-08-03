@@ -14,6 +14,9 @@ import UpdateDepartmentComponent from './components/UpdateDepartmentComponent';
 import ListPayrollComponent from './components/ListPayrollComponent';
 import CreatePayrollComponent from './components/CreatePayrollComponent';
 import ViewPayrollComponent from './components/ViewPayrollComponent';
+import ListCheckInCheckOutComponent from './components/ListCheckInCheckOutComponent';
+import ViewCheckInCheckOutComponent from './components/ViewCheckInCheckOutComponent';
+import CreateCheckInCheckOutComponent from './components/CreateCheckInCheckOutComponent';
 import FooterComponent from './components/FooterComponent';
 
 function App() {
@@ -35,6 +38,9 @@ function App() {
                           <Route path = "/payrolls" component = {ListPayrollComponent}></Route>
                           <Route path = "/add-payroll/:id" component = {CreatePayrollComponent}></Route>
                           <Route path = "/view-payroll/:id" component = {ViewPayrollComponent}></Route>
+                          <Route path = "/checkInCheckOuts" component = {ListCheckInCheckOutComponent}></Route>
+                          <Route path = "/view-checkincheckout/:id" component = {ViewCheckInCheckOutComponent}></Route>
+                          <Route path = "/add-checkincheckout/:id" component = {CreateCheckInCheckOutComponent}></Route>
                     </Switch>
                 </div>
               <FooterComponent />

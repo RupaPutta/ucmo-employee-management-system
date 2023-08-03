@@ -1,6 +1,7 @@
 package edu.ucmo;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class AdminController {
     @PostMapping("/admins")
     public Admin createAdmin(@RequestBody Admin admin) {
         return adminRepository.save(admin);
+    }
+
+    @GetMapping("/admins")
+    public List<Admin> getAdmins() {
+        return adminRepository.findAll();
     }
 
     @GetMapping("/admins/{id}")

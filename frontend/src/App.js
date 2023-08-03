@@ -18,6 +18,7 @@ import ListCheckInCheckOutComponent from './components/ListCheckInCheckOutCompon
 import ViewCheckInCheckOutComponent from './components/ViewCheckInCheckOutComponent';
 import CreateCheckInCheckOutComponent from './components/CreateCheckInCheckOutComponent';
 import ListAdminComponent from './components/ListAdminComponent';
+import ListHolidayComponent from './components/ListHolidayComponent';
 import FooterComponent from './components/FooterComponent';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
                           <Route path = "/view-checkincheckout/:id" component = {ViewCheckInCheckOutComponent}></Route>
                           <Route path = "/add-checkincheckout/:id" component = {CreateCheckInCheckOutComponent}></Route>
                           <Route path = "/admins" component = {ListAdminComponent}></Route>
+                          <Route path = "/holidays" component = {ListHolidayComponent}></Route>
                     </Switch>
                 </div>
               <FooterComponent />

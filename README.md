@@ -12,12 +12,12 @@ singhirunnusorn@ucmo.edu
 
 **Team Members:**
 1. Sri Sowmya Rupa Putta, SXP10090@UCMO.EDU, 700741009
-2. Divya Adduri
-3. Purnasree Vutti
-4. Manasa Vathumilli
+2. Divya Adduri, DXA32880@UCMO.EDU, 700743288
+3. Purnasree Vutti, PXV54700@UCMO.EDU, 700745470
+4. Manasa Vathumilli, MXV54670@UCMO.EDU, 700745467
 
 ## Project Status
-DEVELOPMENT IN PROGRESS :construction:
+Active
 
 ## Contributing
 

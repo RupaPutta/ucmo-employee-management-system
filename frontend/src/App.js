@@ -21,11 +21,14 @@ import ListAdminComponent from './components/ListAdminComponent';
 import ListHolidayComponent from './components/ListHolidayComponent';
 import FooterComponent from './components/FooterComponent';
 
+import Navbar from "./Navigation/Navbar.js";
+
 function App() {
   return (
     <div>
         <Router>
               <HeaderComponent />
+                <Navbar />
                 <div className="container">
                     <Switch> 
                           <Route path = "/" exact component = {ListEmployeeComponent}></Route>
